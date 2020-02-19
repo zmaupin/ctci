@@ -10,11 +10,10 @@ def permutation?(str1, str2)
   hsh2 = {}
   str1.each_char { |character| hsh1[character] = 1 }
   str2.each_char { |character| hsh2[character] = 1 }
-  hsh1 = hsh1.sort
-  hsh2 = hsh2.sort
+
   hsh1.each_key do |hsh1_key|
-    return false if hsh2.include(hsh1_key)
     return false if hsh1.length != hsh2.length
+    return false unless hsh2.include?(hsh1_key)
   end
 
   true
